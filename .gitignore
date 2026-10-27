@@ -1,0 +1,16 @@
+# Archivos generados por Java
+**/target/
+backend/bin/
+
+# Credenciales y configuracion local
+.env
+.env.*
+!.env.example
+**/application.properties
+**/application-local.properties
+**/application.yml
+**/application.yaml
+
+# Archivos de Windows
+Thumbs.db
+.DS_Store

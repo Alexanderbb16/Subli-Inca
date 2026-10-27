@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Administración | SUBLI-INCA
+    </title>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER ADMINISTRACIÓN
+    ====================================================== -->
+
+    <header>
+
+        <div class="logo">
+            SUBLI-INCA
+        </div>
+
+
+        <nav>
+
+            <a href="index.html">
+                Ver tienda
+            </a>
+
+        </nav>
+
+
+    </header>
+
+
+
+    <main class="admin-page">
+
+
+        <!-- =====================================================
+             ENCABEZADO
+        ====================================================== -->
+
+        <section class="admin-header">
+
+            <p class="section-subtitle">
+                PANEL DE ADMINISTRACIÓN
+
+                <button id="btn-cerrar-sesion" type="button">
+                    Cerrar sesión
+                </button>
+            </p>
+
+            <h1>
+                Gestiona tus productos
+            </h1>
+
+            <p>
+                Agrega, edita y administra los productos
+                que aparecerán en SUBLI-INCA.
+            </p>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             BOTÓN AGREGAR
+        ====================================================== -->
+
+        <section class="admin-actions">
+
+            <button
+                type="button"
+                class="btn-primary"
+                id="btn-agregar-producto"
+            >
+                + Agregar producto
+            </button>
+
+        </section>
+
+        <section class="admin-summary">
+
+    <div class="summary-card">
+        <span id="total-productos">0</span>
+        <p>Productos</p>
+    </div>
+
+    <div class="summary-card">
+        <span id="total-activos">0</span>
+        <p>Activos</p>
+    </div>
+
+    <div class="summary-card">
+        <span id="total-inactivos">0</span>
+        <p>Inactivos</p>
+    </div>
+
+
+</section>
+
+   <div class="admin-tools">
+
+    <div class="admin-search">
+        <input type="text" id="buscar-producto-admin" placeholder="Buscar producto...">
+    </div>
+
+    <div class="admin-filter">
+        <select id="filtro-categoria-admin">
+            <option value="Todos">Todas las categorías</option>
+            <option value="Polos">Polos</option>
+            <option value="Tomatodos">Tomatodos</option>
+            <option value="Termos">Termos</option>
+            <option value="Llaveros">Llaveros</option>
+            <option value="Pijamas">Pijamas</option>
+            <option value="Otros">Otros</option>
+        </select>
+    </div>
+
+</div>
+
+
+        <!-- =====================================================
+     FORMULARIO AGREGAR PRODUCTO
+===================================================== -->
+
+<section
+    class="admin-form-section"
+    id="formulario-producto"
+    style="display: none;"
+>
+
+    <h2>
+        Agregar nuevo producto
+    </h2>
+
+
+    <form id="form-agregar-producto">
+
+
+        <!-- NOMBRE -->
+
+        <div class="form-group">
+
+            <label for="nombre">
+                Nombre del producto
+            </label>
+
+            <input
+                type="text"
+                id="nombre"
+                required
+            >
+
+        </div>
+
+
+        <!-- CATEGORÍA -->
+
+        <div class="form-group">
+
+            <label for="categoria">
+                Categoría
+            </label>
+
+            <select
+                id="categoria"
+                required
+            >
+
+                <option value="">
+                    Selecciona una categoría
+                </option>
+
+                <option value="Polos">
+                    Polos
+                </option>
+
+                <option value="Tomatodos">
+                    Tomatodos
+                </option>
+
+                <option value="Termos">
+                    Termos
+                </option>
+
+                <option value="Llaveros">
+                    Llaveros
+                </option>
+
+                <option value="Pijamas">
+                    Pijamas
+                </option>
+
+                <option value="Otros">
+                    Otros
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- DESCRIPCIÓN -->
+
+        <div class="form-group">
+
+            <label for="descripcion">
+                Descripción
+            </label>
+
+            <textarea
+                id="descripcion"
+                required
+            ></textarea>
+
+        </div>
+
+
+        <!-- PRECIO -->
+
+        <div class="form-group">
+
+            <label for="precio">
+                Precio (S/)
+            </label>
+
+            <input
+                type="number"
+                id="precio"
+                min="0"
+                step="0.01"
+                required
+            >
+
+        </div>
+
+
+
+
+        
+<!-- IMAGEN -->
+
+<div class="form-group">
+
+    <label for="imagen">
+        Imagen del producto
+    </label>
+
+    <input
+        type="file"
+        id="imagen"
+        accept="image/*"
+    >
+
+    <p id="imagen-actual">
+    No hay imagen seleccionada.
+</p>
+
+</div>
+
+
+
+        <!-- BOTONES -->
+
+        <div class="form-buttons">
+
+            <button
+                type="submit"
+                class="btn-primary"
+            >
+                Guardar producto
+            </button>
+
+
+            <button
+                type="button"
+                class="admin-cancel-button"
+                id="btn-cancelar-producto"
+            >
+                Cancelar
+            </button>
+
+        </div>
+
+
+    </form>
+
+</section>
+
+
+
+        <!-- =====================================================
+             LISTA DE PRODUCTOS
+        ====================================================== -->
+
+        <section class="admin-products">
+
+
+            <h2>
+                Productos registrados
+            </h2>
+
+
+            <div
+                class="admin-products-grid"
+                id="admin-productos-container"
+            >
+
+                <!-- Los productos aparecerán aquí -->
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <script src="js/proteger-admin.js"></script>
+    <script src="js/admin.js"></script>
+
+
+</body>
+
+</html>
+

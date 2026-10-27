@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SUBLI-INCA | Productos personalizados</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+        HEADER
+    ====================================================== -->
+
+    <header>
+
+    <div class="logo">
+    <img src="assets/LOGOSUBLI.png" alt="SUBLI-INCA" width="50">
+</div>
+
+    <!-- BUSCADOR -->
+    <div class="search-box">
+
+        <input 
+            type="text" 
+            id="buscador"
+            placeholder="Buscar productos..."
+        >
+
+        <button id="btn-buscar" type="button">
+            🔍
+        </button>
+
+    </div>
+
+
+    <nav>
+
+        <a href="#inicio">Inicio</a>
+
+        <a href="#catalogo-completo">Catálogo</a>
+
+        <a href="#nosotros">Nosotros</a>
+
+        <a href="#contacto">Contacto</a>
+
+    </nav>
+
+
+<a 
+    href="https://wa.me/51912689377"
+    class="btn-whatsapp"
+    target="_blank"
+    aria-label="WhatsApp"
+>
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="texto-whatsapp">WhatsApp</span>
+</a>
+
+<button
+    type="button"
+    class="btn-carrito"
+    id="btn-carrito"
+    aria-label="Carrito de compras"
+>
+    <span class="carrito-icono">🛒</span>
+    <span class="texto-carrito">Carrito</span>
+    <span id="carrito-contador">0</span>
+</button>
+
+</header>
+
+
+    <main>
+
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <section class="hero" id="inicio">
+
+
+            <div class="hero-content">
+
+
+                <p class="hero-subtitle">
+                    PRODUCTOS PERSONALIZADOS
+                </p>
+
+
+                <h1>
+                    Tu idea,<br>
+                    hecha realidad.
+                </h1>
+
+
+                <p class="hero-description">
+
+                    Personalizamos polos, tomatodos, termos,
+                    llaveros, pijamas y mucho más.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+
+                    <a href="#catalogo" class="btn-primary">
+                        Ver catálogo
+                    </a>
+
+
+                    <a 
+                        href="https://wa.me/51912689377"
+                        class="btn-secondary"
+                        target="_blank"
+>
+    Consultar por WhatsApp
+</a>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================================
+             CATEGORÍAS
+        ====================================================== -->
+
+        <section class="categories" id="catalogo">
+
+
+            <div class="section-header">
+
+
+                <p class="section-subtitle">
+                    EXPLORA NUESTRO CATÁLOGO
+                </p>
+
+
+                <h2>
+                    Elige una categoría
+                </h2>
+
+
+                <p>
+                    Encuentra el producto perfecto para ti
+                    o para regalar.
+                </p>
+
+
+            </div>
+
+
+
+            <div class="categories-grid">
+
+
+                <!-- POLOS -->
+
+                <a href="#" class="category-card" data-categoria="Polos">
+
+                    <div class="category-icon">
+                        👕
+                    </div>
+
+                    <h3>
+                        Polos
+                    </h3>
+
+                    <p>
+                        Diseños personalizados para cada ocasión.
+                    </p>
+
+                </a>
+
+
+
+                <!-- TOMATODOS -->
+
+                <a href="#" class="category-card" data-categoria="Tomatodos">
+
+                    <div class="category-icon">
+                        🥤
+                    </div>
+
+                    <h3>
+                        Tomatodos
+                    </h3>
+
+                    <p>
+                        Lleva tu diseño favorito contigo.
+                    </p>
+
+                </a>
+
+
+
+                <!-- TERMOS -->
+
+                <a href="#" class="category-card" data-categoria="Termos">
+
+                    <div class="category-icon">
+                        🧊
+                    </div>
+
+                    <h3>
+                        Termos
+                    </h3>
+
+                    <p>
+                        Personaliza tus termos con tu estilo.
+                    </p>
+
+                </a>
+
+
+
+                <!-- LLAVEROS -->
+
+                <a href="#" class="category-card" data-categoria="Llaveros">
+
+                    <div class="category-icon">
+                        🔑
+                    </div>
+
+                    <h3>
+                        Llaveros
+                    </h3>
+
+                    <p>
+                        Pequeños detalles con un gran significado.
+                    </p>
+
+                </a>
+
+
+
+                <!-- PIJAMAS -->
+
+                <a href="#" class="category-card" data-categoria="Pijamas">
+
+                    <div class="category-icon">
+                        💤
+                    </div>
+
+                    <h3>
+                        Pijamas
+                    </h3>
+
+                    <p>
+                        Diseños únicos para descansar con estilo.
+                    </p>
+
+                </a>
+
+
+
+                <!-- OTROS -->
+
+                <a href="#" class="category-card" data-categoria="Otros">
+
+                    <div class="category-icon">
+                        ✨
+                    </div>
+
+                    <h3>
+                        Otros
+                    </h3>
+
+                    <p>
+                        Personalizamos mucho más para ti.
+                    </p>
+
+                </a>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================================
+             PRODUCTOS DESTACADOS
+        ====================================================== -->
+
+        <section class="products" id="productos">
+
+
+            <div class="section-header">
+
+
+                <p class="section-subtitle">
+                    NUESTROS PRODUCTOS
+                </p>
+
+
+                <h2>
+                    Productos destacados
+                </h2>
+
+
+                <p>
+                    Encuentra el producto perfecto para ti
+                    o para regalar.
+                </p>
+
+
+            </div>
+
+
+
+            <!--
+                IMPORTANTE:
+
+                Este ID NO SE DEBE CAMBIAR.
+
+                script.js utiliza este contenedor
+                para mostrar los productos de la base de datos.
+            -->
+
+            <div class="products-grid" id="productos-container">
+
+            </div>
+
+
+
+            <div class="products-more">
+
+                <a href="#catalogo-completo" class="btn-primary">
+                    Ver todo el catálogo
+                </a>
+
+            </div>
+
+
+        </section>
+
+        <!-- =====================================================
+        CATÁLOGO COMPLETO
+===================================================== -->
+
+<section class="products catalog-full" id="catalogo-completo">
+
+    <div class="section-header">
+
+        <p class="section-subtitle">
+            NUESTRO CATÁLOGO
+        </p>
+
+        <h2>
+            Catálogo completo
+        </h2>
+
+        <p>
+            Descubre todos nuestros productos personalizados.
+        </p>
+
+    </div>
+
+    <div class="catalog-filters">
+
+    <button type="button" class="catalog-filter active" data-categoria="Todos">
+        Todos
+    </button>
+
+    <button type="button" class="catalog-filter" data-categoria="Polos">
+        Polos
+    </button>
+
+    <button type="button" class="catalog-filter" data-categoria="Tomatodos">
+        Tomatodos
+    </button>
+
+    <button type="button" class="catalog-filter" data-categoria="Termos">
+        Termos
+    </button>
+
+    <button type="button" class="catalog-filter" data-categoria="Llaveros">
+        Llaveros
+    </button>
+
+    <button type="button" class="catalog-filter" data-categoria="Pijamas">
+        Pijamas
+    </button>
+
+    <button type="button" class="catalog-filter" data-categoria="Otros">
+        Otros
+    </button>
+
+</div>
+
+    <div class="products-grid" id="catalogo-container">
+
+    </div>
+
+</section>
+
+
+        <!-- =====================================================
+             ¿TIENES UNA IDEA?
+        ====================================================== -->
+
+        <section class="personalize">
+
+
+            <div class="personalize-content">
+
+
+                <p class="section-subtitle">
+                    ¿TIENES UNA IDEA? 🎨
+                </p>
+
+
+                <h2>
+                    Nosotros la hacemos realidad.
+                </h2>
+
+
+                <p>
+                    Cuéntanos qué tienes en mente y crearemos
+                    un producto personalizado especialmente para ti.
+                </p>
+
+
+                <a 
+                    href="https://wa.me/51912689377"
+                    class="btn-whatsapp"
+                    target="_blank"
+>
+    Personaliza tu producto
+</a>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================================
+             ¿CÓMO COMPRAR?
+        ====================================================== -->
+
+        <section class="how-buy">
+
+
+            <div class="section-header">
+
+
+                <p class="section-subtitle">
+                    COMPRA FÁCIL Y RÁPIDO
+                </p>
+
+
+                <h2>
+                    ¿Cómo comprar?
+                </h2>
+
+
+                <p>
+                    Realizar tu pedido es muy sencillo.
+                </p>
+
+
+            </div>
+
+
+
+            <div class="steps-grid">
+
+
+                <!-- PASO 1 -->
+
+                <div class="step">
+
+                    <span class="step-number">
+                        01
+                    </span>
+
+
+                    <h3>
+                        Elige
+                    </h3>
+
+
+                    <p>
+                        Selecciona el producto que deseas personalizar.
+                    </p>
+
+                </div>
+
+
+
+                <!-- PASO 2 -->
+
+                <div class="step">
+
+                    <span class="step-number">
+                        02
+                    </span>
+
+
+                    <h3>
+                        Personaliza
+                    </h3>
+
+
+                    <p>
+                        Envíanos tu diseño, foto, nombre o frase.
+                    </p>
+
+                </div>
+
+
+
+                <!-- PASO 3 -->
+
+                <div class="step">
+
+                    <span class="step-number">
+                        03
+                    </span>
+
+
+                    <h3>
+                        Pide por WhatsApp
+                    </h3>
+
+
+                    <p>
+                        Coordinamos contigo los detalles de tu pedido.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================================
+             NOSOTROS
+        ====================================================== -->
+
+        <section class="about" id="nosotros">
+
+
+            <div class="section-header">
+
+
+                <p class="section-subtitle">
+                    CONÓCENOS
+                </p>
+
+
+                <h2>
+                    Somos SUBLI-INCA
+                </h2>
+
+
+                <p>
+                    Creamos productos personalizados pensados
+                    para convertir tus ideas, recuerdos y momentos
+                    especiales en algo único.
+                </p>
+
+
+            </div>
+
+
+
+            <div class="about-grid">
+
+
+                <div class="about-card">
+
+                    <h3>
+                        🎨 Creatividad
+                    </h3>
+
+                    <p>
+                        Transformamos tus ideas en diseños
+                        personalizados.
+                    </p>
+
+                </div>
+
+
+
+                <div class="about-card">
+
+                    <h3>
+                        ❤️ Personalización
+                    </h3>
+
+                    <p>
+                        Cada producto puede tener tu propio
+                        estilo, nombre, foto o frase.
+                    </p>
+
+                </div>
+
+
+
+                <div class="about-card">
+
+                    <h3>
+                        ⭐ Calidad
+                    </h3>
+
+                    <p>
+                        Buscamos ofrecer productos que puedas
+                        disfrutar y regalar.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer id="contacto">
+
+
+        <div class="footer-container">
+
+
+            <!-- MARCA -->
+
+            <div class="footer-brand">
+
+                <div class="logo">
+                    SUBLI-INCA
+                </div>
+
+
+                <p>
+                    Tu idea, hecha realidad.
+                </p>
+
+            </div>
+
+
+
+            <!-- ENLACES -->
+
+            <div class="footer-links">
+
+                <h3>
+                    Enlaces
+                </h3>
+
+
+                <a href="#inicio">
+                    Inicio
+                </a>
+
+
+                <a href="#catalogo-completo">
+                    Catálogo
+                </a>
+
+
+                <a href="#nosotros">
+                    Nosotros
+                </a>
+
+
+                <a href="#contacto">
+                    Contacto
+                </a>
+
+            </div>
+
+
+
+            <!-- REDES SOCIALES -->
+
+<div class="footer-social">
+
+    <h3>
+        Síguenos
+    </h3>
+
+    <div class="social-links">
+
+        <a href="#" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+            <span>Instagram</span>
+        </a>
+
+        <a href="#" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+            <span>Facebook</span>
+        </a>
+
+        <a href="#" aria-label="TikTok">
+            <i class="fa-brands fa-tiktok"></i>
+            <span>TikTok</span>
+        </a>
+
+        <a 
+            href="https://wa.me/51912689377"
+            aria-label="WhatsApp"
+            target="_blank"
+>
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>WhatsApp</span> 
+        </a>
+
+    </div>
+
+</div>
+
+
+        </div>
+
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 SUBLI-INCA. Todos los derechos reservados.
+            </p>
+
+        </div>
+
+
+    </footer>
+
+<!-- =====================================================
+        MODAL - DETALLE DEL PRODUCTO
+===================================================== -->
+
+<div class="product-modal" id="product-modal">
+
+    <div class="product-modal-content">
+
+        <button class="modal-close" id="modal-close">
+            &times;
+        </button>
+
+        <div class="modal-image">
+
+            <img id="modal-product-image" src="" alt="">
+
+        </div>
+
+        <div class="modal-info">
+
+            <p class="section-subtitle">
+                PRODUCTO PERSONALIZADO
+            </p>
+
+            <h2 id="modal-product-name">
+                Nombre del producto
+            </h2>
+
+            <p id="modal-product-description">
+                Descripción del producto
+            </p>
+
+            <span class="modal-price" id="modal-product-price">
+                S/ 0.00
+            </span>
+
+
+<div class="modal-order">
+
+    <label for="modal-cantidad">
+        Cantidad
+    </label>
+
+    <input 
+        type="number" 
+        id="modal-cantidad"
+        min="1"
+        value="1"
+    >
+
+</div>
+
+<p class="modal-total">
+    Total estimado:
+    <strong id="modal-product-total">S/ 0.00</strong>
+</p>
+
+<div class="modal-order">
+
+    <label for="modal-personalizacion">
+        ¿Cómo deseas personalizarlo?
+    </label>
+
+    <textarea
+        id="modal-personalizacion"
+        rows="4"
+        placeholder="Ejemplo: Nombre, frase, color, foto o diseño que deseas..."
+    ></textarea>
+
+</div>
+
+<button
+    type="button"
+    class="btn-whatsapp"
+    id="modal-agregar-carrito"
+>
+    🛒 Agregar al carrito
+</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     MODAL - CARRITO DE COMPRAS
+===================================================== -->
+
+<div class="cart-modal" id="cart-modal">
+
+    <div class="cart-modal-content">
+
+        <button
+            type="button"
+            class="modal-close"
+            id="cart-close"
+        >
+            &times;
+        </button>
+
+        <p class="section-subtitle">
+            TU PEDIDO
+        </p>
+
+        <h2>
+            Carrito de compras
+        </h2>
+
+        <div id="carrito-productos">
+
+            <p class="carrito-vacio">
+                Tu carrito está vacío.
+            </p>
+
+        </div>
+
+        <div class="cart-summary">
+
+            <p>
+                Unidades:
+                <strong id="carrito-unidades">0</strong>
+            </p>
+
+            <p class="cart-total">
+                Total:
+                <strong id="carrito-total">S/ 0.00</strong>
+            </p>
+
+        </div>
+
+        <button
+            type="button"
+            class="btn-whatsapp"
+            id="btn-finalizar-pedido"
+        >
+            <i class="fa-brands fa-whatsapp"></i>
+            Realizar pedido por WhatsApp
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="js/script.js"></script>
+
