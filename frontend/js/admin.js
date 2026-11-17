@@ -2,19 +2,13 @@
 // PANEL DE ADMINISTRACIÓN - SUBLI-INCA
 // =====================================================
 
-console.log("ADMIN.JS SE ESTA EJECUTANDO");
-
-
-const credenciales = "Basic " + btoa("admin:admin123");
-
-function fetchAdmin(url, opciones = {}) {
-
-    opciones.headers = {
-        ...(opciones.headers || {}),
-        "Authorization": credenciales
-    };
-
-    return fetch(url, opciones);
+function fetchAdmin(path, opciones = {}) {
+    return window.subliAdminSessionReady.then(isAuthenticated => {
+        if (!isAuthenticated) {
+            throw new Error("La sesión administrativa no está activa.");
+        }
+        return window.SubliAuth.request(path, opciones);
+    });
 }
 
 
@@ -27,7 +21,7 @@ const adminProductosContainer = document.getElementById(
 // CARGAR PRODUCTOS
 // =====================================================
 
-fetchAdmin("http://localhost:8080/api/productos")
+fetchAdmin("/api/productos/admin")
     .then(response => {
 
         if (!response.ok) {
@@ -85,8 +79,8 @@ fetchAdmin("http://localhost:8080/api/productos")
                 <div class="admin-product-image">
 
                     <img
-                        src="assets/${producto.imagen}"
-                        alt="${producto.nombre}"
+                        src="assets/${window.escapeHTML(producto.imagen)}"
+                        alt="${window.escapeHTML(producto.nombre)}"
                     >
 
                 </div>
@@ -95,33 +89,33 @@ fetchAdmin("http://localhost:8080/api/productos")
                 <div class="admin-product-info">
 
                     <h3>
-                        ${producto.nombre}
+                        ${window.escapeHTML(producto.nombre)}
                     </h3>
 
 
                     <p>
-                        ${producto.descripcion}
+                        ${window.escapeHTML(producto.descripcion)}
                     </p>
 
 
                     <p>
                         <strong>Precio:</strong>
-                        S/ ${producto.precio.toFixed(2)}
+                        S/ ${window.escapeHTML(producto.precio.toFixed(2))}
                     </p>
 
 
 
 
-                    <p class="${producto.activo ? "producto-activo" : "producto-inactivo"}">
+                    <p class="${window.escapeHTML(producto.activo ? "producto-activo" : "producto-inactivo")}">
                         <strong>Estado:</strong>
-                        ${producto.activo ? "Activo 🟢" : "Inactivo 🔴"}
+                        ${window.escapeHTML(producto.activo ? "Activo 🟢" : "Inactivo 🔴")}
                     </p>
 
 
                     <button
                         type="button"
                         class="admin-edit-button"
-                        data-id="${producto.id}"
+                        data-id="${window.escapeHTML(producto.id)}"
                     >
                         Editar
                     </button>
@@ -129,16 +123,16 @@ fetchAdmin("http://localhost:8080/api/productos")
                     <button
                         type="button"
                         class="admin-toggle-button"
-                        data-id="${producto.id}"
-                        data-activo="${producto.activo}"
+                        data-id="${window.escapeHTML(producto.id)}"
+                        data-activo="${window.escapeHTML(Boolean(producto.activo))}"
 >
-                        ${producto.activo ? "🔴 Desactivar" : "🟢 Activar"}
+                        ${window.escapeHTML(producto.activo ? "🔴 Desactivar" : "🟢 Activar")}
 </button>
 
 <button
     type="button"
     class="admin-delete-button"
-    data-id="${producto.id}"
+    data-id="${window.escapeHTML(producto.id)}"
 >
     🗑️ Eliminar
 </button>
@@ -310,7 +304,7 @@ const datosImagen = new FormData();
 datosImagen.append("imagen", archivoImagen);
 
 
-fetchAdmin("http://localhost:8080/api/productos/imagen", {
+fetchAdmin("/api/productos/imagen", {
 
     method: "POST",
 
@@ -360,8 +354,8 @@ fetchAdmin("http://localhost:8080/api/productos/imagen", {
 function guardarProducto(producto) {
 
     const url = productoEditandoId
-        ? `http://localhost:8080/api/productos/${productoEditandoId}`
-        : "http://localhost:8080/api/productos";
+        ? `/api/productos/${productoEditandoId}`
+        : "/api/productos";
 
 
     const metodo = productoEditandoId
@@ -449,10 +443,15 @@ document.addEventListener("click", function (event) {
 
 
     fetchAdmin(
-    "http://localhost:8080/api/productos"
+    "/api/productos/admin"
 )
 
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("No se pudo consultar el producto.");
+            }
+            return response.json();
+        })
 
         .then(productos => {
 
@@ -556,7 +555,7 @@ document.addEventListener("click", function (event) {
 
 
     fetchAdmin(
-        `http://localhost:8080/api/productos/${idProducto}/estado`,
+        `/api/productos/${idProducto}/estado`,
         {
             method: "PUT",
 
@@ -629,7 +628,7 @@ document.addEventListener("click", function (event) {
     }
 
     fetchAdmin(
-        `http://localhost:8080/api/productos/${idProducto}`,
+        `/api/productos/${idProducto}`,
         {
             method: "DELETE"
         }

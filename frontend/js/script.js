@@ -1,7 +1,8 @@
 console.log("SCRIPT.JS SE ESTA EJECUTANDO");
+
 const contenedorProductos = document.getElementById("productos-container");
 let buscando = false;
-fetch("http://localhost:8080/api/productos", {
+fetch(`${window.SUBLI_API_BASE}/api/productos`, {
     method: "GET",
     headers: {
         "Accept": "application/json"
@@ -37,8 +38,8 @@ filtrosCatalogo.forEach(boton => {
     boton.classList.remove("active");
 });
 
-const filtroCorrespondiente = document.querySelector(
-    `.catalog-filter[data-categoria="${categoriaSeleccionada}"]`
+const filtroCorrespondiente = Array.from(filtrosCatalogo).find(
+    boton => boton.dataset.categoria === categoriaSeleccionada
 );
 
 if (filtroCorrespondiente) {
@@ -62,23 +63,23 @@ if (filtroCorrespondiente) {
                         <div class="product-image">
 
                             <img 
-                                src="assets/${producto.imagen}" 
-                                alt="${producto.nombre}"
+                                src="assets/${window.escapeHTML(producto.imagen)}"
+                                alt="${window.escapeHTML(producto.nombre)}"
                             >
 
                         </div>
 
                         <div class="product-info">
 
-                            <h3>${producto.nombre}</h3>
+                            <h3>${window.escapeHTML(producto.nombre)}</h3>
 
-                            <p>${producto.descripcion}</p>
+                            <p>${window.escapeHTML(producto.descripcion)}</p>
 
                             <span class="product-price">
-                                S/ ${producto.precio.toFixed(2)}
+                                S/ ${window.escapeHTML(producto.precio.toFixed(2))}
                             </span>
 
-                            <a href="#" class="product-button" data-id="${producto.id}">
+                            <a href="#" class="product-button" data-id="${window.escapeHTML(producto.id)}">
     Ver producto
 </a>
 
@@ -114,23 +115,23 @@ if (filtroCorrespondiente) {
                 <div class="product-image">
 
                     <img 
-                        src="assets/${producto.imagen}" 
-                        alt="${producto.nombre}"
+                        src="assets/${window.escapeHTML(producto.imagen)}"
+                        alt="${window.escapeHTML(producto.nombre)}"
                     >
 
                 </div>
 
                 <div class="product-info">
 
-                    <h3>${producto.nombre}</h3>
+                    <h3>${window.escapeHTML(producto.nombre)}</h3>
 
-                    <p>${producto.descripcion}</p>
+                    <p>${window.escapeHTML(producto.descripcion)}</p>
 
                     <span class="product-price">
-                        S/ ${producto.precio.toFixed(2)}
+                        S/ ${window.escapeHTML(producto.precio.toFixed(2))}
                     </span>
 
-                    <a href="#" class="product-button" data-id="${producto.id}">
+                    <a href="#" class="product-button" data-id="${window.escapeHTML(producto.id)}">
     Ver producto
 </a>
 
@@ -201,7 +202,7 @@ document.addEventListener("click", function (event) {
 
         const idProducto = Number(event.target.dataset.id);
 
-        fetch("http://localhost:8080/api/productos")
+        fetch(`${window.SUBLI_API_BASE}/api/productos`)
             .then(response => response.json())
             .then(productos => {
 
@@ -387,7 +388,7 @@ btnBuscar.addEventListener("click", function () {
     return;
 }
 
-    fetch("http://localhost:8080/api/productos")
+    fetch(`${window.SUBLI_API_BASE}/api/productos`)
         .then(response => response.json())
         .then(productos => {
 
@@ -427,26 +428,26 @@ btnBuscar.addEventListener("click", function () {
                     <div class="product-image">
 
                         <img 
-                            src="assets/${producto.imagen}" 
-                            alt="${producto.nombre}"
+                            src="assets/${window.escapeHTML(producto.imagen)}"
+                            alt="${window.escapeHTML(producto.nombre)}"
                         >
 
                     </div>
 
                     <div class="product-info">
 
-                        <h3>${producto.nombre}</h3>
+                        <h3>${window.escapeHTML(producto.nombre)}</h3>
 
-                        <p>${producto.descripcion}</p>
+                        <p>${window.escapeHTML(producto.descripcion)}</p>
 
                         <span class="product-price">
-                            S/ ${producto.precio.toFixed(2)}
+                            S/ ${window.escapeHTML(producto.precio.toFixed(2))}
                         </span>
 
                         <a 
                             href="#" 
                             class="product-button"
-                            data-id="${producto.id}"
+                            data-id="${window.escapeHTML(producto.id)}"
                         >
                             Ver producto
                         </a>
@@ -490,7 +491,7 @@ document
     .querySelector('.catalog-filter[data-categoria="Todos"]')
     .classList.add("active");
 
-    fetch("http://localhost:8080/api/productos")
+    fetch(`${window.SUBLI_API_BASE}/api/productos`)
         .then(response => {
 
             if (!response.ok) {
@@ -516,26 +517,26 @@ document
                     <div class="product-image">
 
                         <img 
-                            src="assets/${producto.imagen}" 
-                            alt="${producto.nombre}"
+                            src="assets/${window.escapeHTML(producto.imagen)}"
+                            alt="${window.escapeHTML(producto.nombre)}"
                         >
 
                     </div>
 
                     <div class="product-info">
 
-                        <h3>${producto.nombre}</h3>
+                        <h3>${window.escapeHTML(producto.nombre)}</h3>
 
-                        <p>${producto.descripcion}</p>
+                        <p>${window.escapeHTML(producto.descripcion)}</p>
 
                         <span class="product-price">
-                            S/ ${producto.precio.toFixed(2)}
+                            S/ ${window.escapeHTML(producto.precio.toFixed(2))}
                         </span>
 
                         <a 
                             href="#" 
                             class="product-button"
-                            data-id="${producto.id}"
+                            data-id="${window.escapeHTML(producto.id)}"
                         >
                             Ver producto
                         </a>
@@ -589,7 +590,7 @@ filtrosCatalogo.forEach(filtro => {
 
         // Obtener productos
 
-        fetch("http://localhost:8080/api/productos")
+        fetch(`${window.SUBLI_API_BASE}/api/productos`)
             .then(response => response.json())
             .then(productos => {
 
@@ -653,8 +654,8 @@ filtrosCatalogo.forEach(filtro => {
                         <div class="product-image">
 
                             <img 
-                                src="assets/${producto.imagen}" 
-                                alt="${producto.nombre}"
+                                src="assets/${window.escapeHTML(producto.imagen)}"
+                                alt="${window.escapeHTML(producto.nombre)}"
                             >
 
                         </div>
@@ -662,21 +663,21 @@ filtrosCatalogo.forEach(filtro => {
                         <div class="product-info">
 
                             <h3>
-                                ${producto.nombre}
+                                ${window.escapeHTML(producto.nombre)}
                             </h3>
 
                             <p>
-                                ${producto.descripcion}
+                                ${window.escapeHTML(producto.descripcion)}
                             </p>
 
                             <span class="product-price">
-                                S/ ${producto.precio.toFixed(2)}
+                                S/ ${window.escapeHTML(producto.precio.toFixed(2))}
                             </span>
 
                             <a 
                                 href="#" 
                                 class="product-button"
-                                data-id="${producto.id}"
+                                data-id="${window.escapeHTML(producto.id)}"
                             >
                                 Ver producto
                             </a>
@@ -704,7 +705,25 @@ filtrosCatalogo.forEach(filtro => {
 // CARRITO DE COMPRAS
 // =====================================================
 
+const CLAVE_CARRITO = "subli_inca_carrito";
 let carrito = [];
+
+try {
+    const carritoGuardado = localStorage.getItem(CLAVE_CARRITO);
+    const carritoParseado = carritoGuardado ? JSON.parse(carritoGuardado) : [];
+    carrito = Array.isArray(carritoParseado) ? carritoParseado : [];
+} catch (error) {
+    console.warn("No se pudo recuperar el carrito guardado.", error);
+    carrito = [];
+}
+
+function guardarCarrito() {
+    try {
+        localStorage.setItem(CLAVE_CARRITO, JSON.stringify(carrito));
+    } catch (error) {
+        console.warn("No se pudo guardar el carrito.", error);
+    }
+}
 
 const btnCarrito =
     document.getElementById("btn-carrito");
@@ -772,6 +791,7 @@ function actualizarContadorCarrito() {
     );
 
     carritoContador.textContent = unidades;
+    guardarCarrito();
 
 }
 
@@ -824,12 +844,12 @@ function mostrarCarrito() {
             <div class="cart-item-info">
 
                 <h3>
-                    ${producto.nombre}
+                    ${window.escapeHTML(producto.nombre)}
                 </h3>
 
                 <p>
                     Precio unitario:
-                    S/ ${producto.precio.toFixed(2)}
+                    S/ ${window.escapeHTML(producto.precio.toFixed(2))}
                 </p>
 
                 <div class="cart-quantity">
@@ -837,19 +857,19 @@ function mostrarCarrito() {
     <button
         type="button"
         class="cart-quantity-btn cart-decrease"
-        data-indice="${indice}"
+        data-indice="${window.escapeHTML(indice)}"
     >
         −
     </button>
 
     <span class="cart-quantity-number">
-        ${producto.cantidad}
+        ${window.escapeHTML(producto.cantidad)}
     </span>
 
     <button
         type="button"
         class="cart-quantity-btn cart-increase"
-        data-indice="${indice}"
+        data-indice="${window.escapeHTML(indice)}"
     >
         +
     </button>
@@ -859,13 +879,13 @@ function mostrarCarrito() {
                 <p>
                     Subtotal:
                     <strong>
-                        S/ ${subtotal.toFixed(2)}
+                        S/ ${window.escapeHTML(subtotal.toFixed(2))}
                     </strong>
                 </p>
 
                 <p>
                     Personalización:
-                    ${producto.personalizacion || "Por coordinar"}
+                    ${window.escapeHTML(producto.personalizacion || "Por coordinar")}
                 </p>
 
             </div>
@@ -874,7 +894,7 @@ function mostrarCarrito() {
             <button
                 type="button"
                 class="cart-remove"
-                data-indice="${indice}"
+                data-indice="${window.escapeHTML(indice)}"
             >
                 🗑️ Eliminar
             </button>
@@ -974,6 +994,10 @@ botonesDisminuir.forEach(boton => {
 
 }
 
+// Restaurar también el contador y el contenido del modal al cargar la página.
+actualizarContadorCarrito();
+mostrarCarrito();
+
 
 // =====================================================
 // FINALIZAR PEDIDO POR WHATSAPP
@@ -1052,13 +1076,14 @@ btnFinalizarPedido.addEventListener("click", function () {
 
 
     const urlWhatsapp =
-        "https://wa.me/51912689377?text=" +
+        `${window.SUBLI_WHATSAPP_URL}?text=` +
         encodeURIComponent(mensajeWhatsapp);
 
 
     window.open(
         urlWhatsapp,
-        "_blank"
+        "_blank",
+        "noopener,noreferrer"
     );
 
 });

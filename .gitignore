@@ -3,9 +3,9 @@
 backend/bin/
 
 # Credenciales y configuracion local
-.env
-.env.*
-!.env.example
+**/.env
+**/.env.*
+!**/.env.example
 **/application.properties
 **/application-local.properties
 **/application.yml

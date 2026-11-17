@@ -5,6 +5,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "productos")
@@ -14,14 +18,21 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "El nombre del producto es obligatorio.")
     private String nombre;
 
     private String descripcion;
 
+    @NotNull(message = "El precio del producto es obligatorio.")
+    @DecimalMin(value = "0.0", message = "El precio debe ser mayor o igual a 0.")
     private Double precio;
 
     private String imagen;
 
+    @NotBlank(message = "La categoría del producto es obligatoria.")
+    @Pattern(
+            regexp = "^(Polos|Tomatodos|Termos|Llaveros|Pijamas|Otros)$",
+            message = "La categoría debe ser una de las categorías permitidas.")
     private String categoria;
 
     private Boolean activo;
